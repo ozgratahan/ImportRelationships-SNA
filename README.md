@@ -38,8 +38,6 @@ Network Construction and Visualization:
 Gephi for Network Visualization: After processing and cleaning the data, the import relationships were transformed into a network structure and visualized using Gephi. Gephi helped in rendering the network graph and allowed us to explore the structure and centrality measures of the trade relationships.
 
 
-![Uploading NETWORK.PNG…]()
-
 
 Analysis Focus:
 
