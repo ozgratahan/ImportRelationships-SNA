@@ -1,71 +1,112 @@
-IMPORT RELATIONSHIPS OF EUROPEAN COUNTRY- Social Network Analysis
+# 🌍 IMPORT RELATIONSHIPS OF EUROPEAN COUNTRIES — Social Network Analysis
 
-Project Overview:
+---
 
+## 📘 Project Overview
 
-This project focuses on analyzing the import relationships among European countries using Social Network Analysis (SNA). The goal is to examine how countries interact with each other through imports, providing a deeper understanding of trade networks in Europe. The analysis involves calculating centrality measures for each country, visualizing the network, and deriving insights from both individual and global measures.
+This project focuses on **analyzing the import relationships among European countries** using **Social Network Analysis (SNA)**.  
+The main goal is to examine how countries interact with each other through imports, providing a deeper understanding of **trade networks in Europe**.  
 
+The analysis includes:
+- Calculating **centrality measures** for each country  
+- **Visualizing** the trade network  
+- Deriving **insights** from both individual and global perspectives  
 
-Data Description:
+By combining **web scraping**, **data preprocessing**, and **network analysis**, this project offers a data-driven perspective on how goods flow across Europe.
 
+---
 
-The dataset consists of import data between European countries, which was collected using Selenium for web scraping. The data is structured in the following format:
+## 🧾 Data Description
 
+The dataset consists of **import data between European countries**, collected using **Selenium**.  
+It follows this structure:
 
-Source Country: The country exporting goods.
+| Column | Description |
+|---------|-------------|
+| **Source Country** | The country exporting goods |
+| **Target Country** | The country importing goods |
+| **Weight** | The volume or value of imports between the countries |
 
-Target Country: The country importing goods.
+After scraping, the dataset was cleaned using **Pandas** to ensure accuracy and consistency before being transformed into a network-ready format.
 
-Weight: The volume or value of imports between the countries.
+---
 
+## 🧰 Data Collection Process
 
-The data was scraped from an online source that provides real-time trade information between European countries. After scraping the data, it was cleaned and preprocessed to ensure consistency and completeness.
+### 🔹 Web Scraping with Selenium
+Selenium was used to automate the extraction of trade data from web pages, including:
+- Navigating through trade statistics portals  
+- Identifying relevant data tables  
+- Extracting **country-to-country import volumes**
 
+### 🔹 Data Cleaning
+The raw data was cleaned with **Pandas** and **NumPy**:
+- Removed duplicates and missing entries  
+- Standardized country names and formats  
+- Structured for use in network analysis tools  
 
+---
 
-Data Collection Process:
+## 🌐 Network Construction and Visualization
 
-Web Scraping with Selenium: Selenium was used to automate the extraction of import data from web pages. The data collection process involved navigating through trade statistics web pages, locating relevant tables, and extracting the necessary information (countries and their respective import volumes).
+After preprocessing, the data was converted into a **directed weighted network**:
+- **Nodes** → European countries  
+- **Edges** → Import connections  
+- **Weights** → Trade value/volume  
 
+### 🧩 Visualization in Gephi
+The resulting network graph was imported into **Gephi** for visualization and exploration.  
+This helped reveal trade clusters, influential nodes, and import dependencies across Europe.
 
-Data Cleaning: The raw data was cleaned using Python’s Pandas library to handle missing values, remove duplicates, and ensure the dataset is ready for analysis.
+---
 
+## 📊 Analytical Focus
 
+| Measure | Description |
+|----------|-------------|
+| **Indegree Centrality** | Number of countries that import from a specific country |
+| **Outdegree Centrality** | Number of countries a specific country exports to |
+| **Betweenness Centrality** | Influence of a country as an intermediary in trade |
+| **Closeness Centrality** | How easily a country can reach other countries in the network |
 
-Network Construction and Visualization:
+These measures reveal:
+- **Dominant import/export hubs**  
+- **Bridging countries** that connect regional markets  
+- **Trade flow structures** in the European economy  
 
+---
 
-Gephi for Network Visualization: After processing and cleaning the data, the import relationships were transformed into a network structure and visualized using Gephi. Gephi helped in rendering the network graph and allowed us to explore the structure and centrality measures of the trade relationships.
+## 🧮 Required Libraries
 
+```python
+pandas    # For data manipulation and cleaning
+numpy     # For numerical operations
+selenium  # For automated data collection
+networkx  # For network creation and analysis
+gephi     # For visualization (external tool)
+```
+## 📸 Network Visualizations
 
+Below are the network graphs showing trade connections between European countries.
+Each node represents a country, and each edge indicates an import relationship (weighted by volume).
 
-Analysis Focus:
+<p align="center"> <img src="docs/NETWORK.PNG" alt="European Import Network" width="700"> 
 
+🖼️ All network visualizations are stored in the /docs directory.
 
-Measures:
+## 📈 Results & Insights
 
+Through this analysis:
 
-Indegree: The number of countries that import from a specific country.
+- Central trade countries such as Germany and France emerged as major hubs.
 
-Outdegree: The number of countries a specific country exports to.
+- Peripheral countries were shown to depend heavily on a few key trade partners.
 
-Betweenness Centrality: Measures the influence of a country as an intermediary in trade relationships.
+- Network topology revealed clusters based on regional economic ties.
 
-Closeness Centrality: Reflects how easily a country can reach other countries in the trade network.
+- These results demonstrate how SNA can uncover hidden patterns in economic data, offering valuable insights for researchers, policymakers, and trade analysts.
 
+## 🧭 Conclusion
 
-
-Required Libraries:
-
-
-pandas: For data manipulation and cleaning.
-
-numpy: For numerical operations and handling of missing data.
-
-selenium: For web scraping and extracting data from online sources.
-
-
-
-Conclusion:
-
-This project provides valuable insights into the import dynamics within Europe, offering a deeper understanding of the countries that dominate the trade network. The analysis can be used to inform policymakers, businesses, and researchers about the structure and flow of goods in the European market.
+This project provides a clear view of Europe’s import dynamics, showing how goods and influence circulate within the region.
+By integrating Selenium, Pandas, and Gephi, it delivers a complete workflow — from data collection to visualization — that can be replicated for other global trade networks.
